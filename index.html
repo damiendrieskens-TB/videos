@@ -2,13 +2,63 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Test vidéo</title>
+  <title>Vidéo</title>
+
+  <!-- Très important pour un bon rendu sur mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    #container {
+      background: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+    video {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      background: #000;
+    }
+
+    /* Ajustements sur très petits écrans */
+    @media (max-width: 480px) {
+      #container {
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Test vidéo direct</h1>
-  <video controls>
-    <source src="c4f8a1c2e7b9d3v3.MP4" type="video/mp4">
-    Votre navigateur ne supporte pas la lecture de vidéos HTML5.
-  </video>
-</body>
-</html>
+  <div id="container">
+    <h1>Vidéo</h1>
+    <video id="video" controls autoplay playsinline>
+      <source src="c4f8a1c2e7b9d3v3.MP4" type="video/mp4">
+      Votre navigateur ne supporte pas la lecture de vidéos HTML5.
+    </video>
+  </div>
+
+  <script>
+    // Essayer de lancer la lecture automatique (certains mobiles exigent une interaction utilisateur)
+    const video = document.getElementById('video');
+    if (video
