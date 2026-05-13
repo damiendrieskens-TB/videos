@@ -55,7 +55,7 @@
     const CORRECT_PASSWORD = 'aonvp26';
 
     function askPassword() {
-      const pwd = prompt('Entrez le mot de passe pour accéder à la vidéo :');
+      const pwd = prompt('Password? :');
       if (pwd === CORRECT_PASSWORD) {
         const videoContainer = document.getElementById('video-container');
         const video = document.getElementById('video');
@@ -70,7 +70,7 @@
         }
       } else {
         document.body.innerHTML =
-          '<div id="container"><h1>Accès refusé</h1><p>Mot de passe incorrect.</p></div>';
+          '<div id="container"><h1>Password incorrect.</p></div>';
       }
     }
 
