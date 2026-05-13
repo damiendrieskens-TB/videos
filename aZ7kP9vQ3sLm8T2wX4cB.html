@@ -55,7 +55,7 @@
     const CORRECT_PASSWORD = 'aonvp26';
 
     function askPassword() {
-      const pwd = prompt('Entrez le mot de passe pour accéder à la vidéo :');
+      const pwd = prompt('Password? :');
       if (pwd === CORRECT_PASSWORD) {
         const videoContainer = document.getElementById('video-container');
         const video = document.getElementById('video');
@@ -80,8 +80,8 @@
 </head>
 <body>
   <div id="container">
-    <h1>Vidéo protégée</h1>
-    <p>Veuillez entrer le mot de passe pour regarder la vidéo.</p>
+    <h1>Video #3</h1>
+    <p></p>
 
     <div id="video-container">
       <video id="video" controls playsinline>
