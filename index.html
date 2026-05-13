@@ -2,9 +2,9 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Vidéo</title>
+  <title>Vidéo protégée</title>
 
-  <!-- Très important pour un bon rendu sur mobile -->
+  <!-- Affichage correct sur mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -31,6 +31,9 @@
       font-size: 1.4rem;
       margin-bottom: 16px;
     }
+    #video-container {
+      display: none; /* caché tant que le mot de passe n’est pas bon */
+    }
     video {
       max-width: 100%;
       height: auto;
@@ -38,7 +41,6 @@
       background: #000;
     }
 
-    /* Ajustements sur très petits écrans */
     @media (max-width: 480px) {
       #container {
         padding: 12px;
@@ -48,17 +50,45 @@
       }
     }
   </style>
+
+  <script>
+    const CORRECT_PASSWORD = 'aonvp26';
+
+    function askPassword() {
+      const pwd = prompt('Entrez le mot de passe pour accéder à la vidéo :');
+      if (pwd === CORRECT_PASSWORD) {
+        const videoContainer = document.getElementById('video-container');
+        const video = document.getElementById('video');
+
+        videoContainer.style.display = 'block';
+
+        if (video) {
+          video.play().catch(() => {
+            // Sur mobile, l'autoplay peut être bloqué :
+            // l'utilisateur pourra appuyer sur "play".
+          });
+        }
+      } else {
+        document.body.innerHTML =
+          '<div id="container"><h1>Accès refusé</h1><p>Mot de passe incorrect.</p></div>';
+      }
+    }
+
+    // Lancer la demande de mot de passe dès le chargement
+    window.onload = askPassword;
+  </script>
 </head>
 <body>
   <div id="container">
-    <h1>Vidéo</h1>
-    <video id="video" controls autoplay playsinline>
-      <source src="c4f8a1c2e7b9d3v3.MP4" type="video/mp4">
-      Votre navigateur ne supporte pas la lecture de vidéos HTML5.
-    </video>
-  </div>
+    <h1>Vidéo protégée</h1>
+    <p>Veuillez entrer le mot de passe pour regarder la vidéo.</p>
 
-  <script>
-    // Essayer de lancer la lecture automatique (certains mobiles exigent une interaction utilisateur)
-    const video = document.getElementById('video');
-    if (video
+    <div id="video-container">
+      <video id="video" controls playsinline>
+        <source src="c4f8a1c2e7b9d3v3.MP4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture de vidéos HTML5.
+      </video>
+    </div>
+  </div>
+</body>
+</html>
