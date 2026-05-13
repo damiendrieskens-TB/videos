@@ -31,6 +31,15 @@
       font-size: 1.4rem;
       margin-bottom: 16px;
     }
+    /* Style pour la photo */
+    .preview-image {
+      max-width: 300px;    /* taille max de l’image */
+      width: 100%;         /* s’adapte sur mobile */
+      height: auto;
+      margin: 0 auto 16px; /* centrée + espace en bas */
+      display: block;
+    }
+
     #video-container {
       display: none; /* caché tant que le mot de passe n’est pas bon */
     }
@@ -81,7 +90,9 @@
 <body>
   <div id="container">
     <h1>Video #3</h1>
-    <p></p>
+
+    <!-- Image au-dessus de la vidéo -->
+    <img src="Swipephone.png" alt="Aperçu vidéo" class="preview-image">
 
     <div id="video-container">
       <video id="video" controls playsinline>
