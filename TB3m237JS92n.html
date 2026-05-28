@@ -31,14 +31,30 @@
       font-size: 1.4rem;
       margin-bottom: 16px;
     }
-    /* Style pour la photo */
-    .preview-image {
-      max-width: 50px;    /* taille max de l’image */
-      width: 100%;         /* s’adapte sur mobile */
-      height: auto;
-      margin: 0 auto 16px; /* centrée + espace en bas */
-      display: block;
-    }
+      /* Conteneur pour avoir les images côte à côte */
+  .preview-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;          /* espace entre les deux images */
+    margin-bottom: 16px;
+  }
+
+  /* Taille de l’image Swipephone */
+  .img-swipephone {
+    max-width: 50px;   /* ajuste comme tu veux */
+    height: auto;
+    display: block;
+  }
+
+  /* Taille de l’image VolumeUp */
+  .img-volumeup {
+    max-width: 30px;   /* autre taille, indépendante */
+    height: auto;
+    display: block;
+  }
+
+    
 
     #video-container {
       display: none; /* caché tant que le mot de passe n’est pas bon */
@@ -92,7 +108,10 @@
     <h1>Video #3</h1>
 
     <!-- Image au-dessus de la vidéo -->
-    <img src="Swipephone.png" alt="Aperçu vidéo" class="preview-image">
+    <div class="preview-wrapper">
+      <img src="Swipephone.png" alt="Aperçu vidéo" class="img-swipephone">
+      <img src="volumeup.png"  alt="Activer le son" class="img-volumeup">
+    </div>
 
     <div id="video-container">
       <video id="video" controls playsinline>
