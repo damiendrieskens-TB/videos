@@ -65,7 +65,7 @@
 
     function askPassword() {
       const pwd = prompt('Password? :');
-      if (pwd === CORRECT_PASSWORD) {
+      if (pwd.toLowerCase() === CORRECT_PASSWORD.toLowerCase()) {
         const videoContainer = document.getElementById('video-container');
         const video = document.getElementById('video');
 
